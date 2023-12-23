@@ -10,4 +10,13 @@
 
 
 # run app  
-clone 
+with gitbash term run:  
+git clone https://github.com/novodevz/cars-flsk.git  
+cd cars-flsk  
+python -m venv venv  
+source venv/Scripts/activate  
+pip install -r requirements.txt  
+cd back  
+py app.py  
+
+
