@@ -1,0 +1,60 @@
+/* Add custom styles for the list items */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+/* only when window is not in full screen mode, aply margin to nav first item */
+
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item:first-child {
+        margin-top: 10px; /* Adjust the margin as needed */
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-item:first-child {
+        margin-top: 0; /* Reset margin for larger screens */
+    }
+}
+
+
+/* Add this to your existing styles to set the cursor for clickable elements */
+.car-item {
+    cursor: pointer;
+}
+
+/* Style the car info */
+.car-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Style the delete button */
+.btn-danger.delete-button {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.delete-form {
+    display: none;
+}
+
+/* Style the car details */
+.car-details {
+    flex: 1;
+}
+
+.car-item {
+    cursor: pointer;
+}
+
+/* Rest of your existing styles */
+

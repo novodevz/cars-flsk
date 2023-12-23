@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}My Car App - Update Car{% endblock %}
+
+{% block content %}
+<h2>Update Car Page</h2>
+
+<!-- Form to update car property -->
+<form method="post" action="{{ url_for('update') }}">
+    <div class="form-group">
+        <label for="idx">Select Car Index:</label>
+        <select class="form-control" id="idx" name="idx">
+            {% for car in cars %}
+            <option value="{{ loop.index }}">Car index: {{ loop.index }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="key">Select Property to Update:</label>
+        <select class="form-control" id="key" name="key">
+            <option value="make">Make</option>
+            <option value="model">Model</option>
+            <option value="year">Year</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="val">Enter New Value:</label>
+        <input type="text" class="form-control" id="val" name="val" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+{% if request.method == 'POST' %}
+{# Display Updated car: if a POST request was made #}
+<h3>Updated car:</h3>
+{% else %}
+<!-- Display the list of cars -->
+<h3>List of Cars:</h3>
+{% endif %}
+<ul>
+    {% if request.method == 'POST' %}
+    {# Display only the updated car if a POST request was made #}
+    <li>
+        <strong>Car index:</strong> {{ idx }}
+        <strong>&nbsp Make:&nbsp</strong> {{ cars[int(idx) - 1].make }}
+        <strong>&nbsp Model:</strong> {{ cars[int(idx) - 1].model }}
+        <strong>&nbsp Year:</strong> {{ cars[int(idx) - 1].year }}
+    </li>
+    {% else %}
+    {# Display the entire list of cars #}
+    {% for car in cars %}
+    <li>
+        <strong>Car index:</strong> {{ loop.index }}
+        <strong>&nbsp Make:&nbsp</strong> {{ car.make }}
+        <strong>&nbsp Model:</strong> {{ car.model }}
+        <strong>&nbsp Year:</strong> {{ car.year }}
+    </li>
+    {% endfor %}
+    {% endif %}
+</ul>
+
+<!-- Display the list of cars with their indices and loop indices -->
+<!-- <h3>List of Cars:</h3>
+    <ul>
+        {% for car in cars %}
+            <li>Car index: {{ loop.index }} - Make: {{ car.make }}, Model: {{ car.model }}, Year: {{ car.year }}</li>
+        {% endfor %}
+    </ul> -->
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}My Car App - Cars{% endblock %}
+
+{% block content %}
+
+<h2>{{ h2str }}</h2>
+<!-- Your specific content for the cars page goes here -->
+<!-- For example, you can include a list of cars -->
+<ul>
+    {% for car in cars %}
+    <li>
+        <strong>Index:</strong> {{ loop.index }}<br>
+        <strong>Make:</strong> {{ car.make }}<br>
+        <strong>Model:</strong> {{ car.model }}<br>
+        <strong>Year:</strong> {{ car.year }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

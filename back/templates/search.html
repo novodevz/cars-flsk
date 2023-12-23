@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}My Car App - Search{% endblock %}
+
+{% block content %}
+<h2>Search Page</h2>
+<form method="post" action="{{ url_for('search') }}">
+    <div class="form-group">
+        <label for="key">Select Search Key:</label>
+        <select class="form-control" id="key" name="key">
+            <option value="make">Make</option>
+            <option value="model">Model</option>
+            <option value="year">Year</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="val">Enter Search Value:</label>
+        <input type="text" class="form-control" id="val" name="val" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<br>
+<ul>
+    {% for car in cars %}
+    <li>
+        <strong>Index:</strong> {{ loop.index }}<br>
+        <strong>Make:</strong> {{ car.make }}<br>
+        <strong>Model:</strong> {{ car.model }}<br>
+        <strong>Year:</strong> {{ car.year }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

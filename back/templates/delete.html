@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}My Car App - Delete Car{% endblock %}
+
+{% block content %}
+
+{% if cars %}
+<h2>Car list:</h2>
+{% else %}
+<h2>Car list is empty</h2>
+{% endif %}
+
+<!-- Display the list of cars with dynamic delete buttons -->
+<ul>
+    {% for car in cars %}
+    <li class="car-item" onclick="showDeleteButton(this)">
+        <div class="car-info">
+            <div class="car-details">
+                <strong>Car index:</strong> {{ loop.index }}
+                <strong>&nbsp Make:&nbsp</strong> {{ car.make }}
+                <strong>&nbsp Model:</strong> {{ car.model }}
+                <strong>&nbsp Year:</strong> {{ car.year }}
+            </div>
+            <form method="post" action="{{ url_for('delete') }}" class="delete-form">
+                <input type="hidden" name="idx" value="{{ loop.index0 }}">
+                <button type="submit" class="btn btn-danger delete-button">Delete</button>
+            </form>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<script>
+    function showDeleteButton(element) {
+        // Hide all delete buttons
+        document.querySelectorAll('.delete-form').forEach(form => form.style.display = 'none');
+
+        // Show the delete button for the clicked car
+        element.querySelector('.delete-form').style.display = 'inline';
+    }
+</script>
+{% endblock %}

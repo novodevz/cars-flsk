@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Car - {{ super() }}{% endblock %}
+
+{% block content %}
+    <h2>Add a New Car</h2>
+
+    <form method="POST" action="{{ url_for('add') }}">
+        <div class="form-group">
+            <label for="make">Make:</label>
+            <input type="text" class="form-control" id="make" name="make" required>
+        </div>
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" class="form-control" id="model" name="model" required>
+        </div>
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="text" class="form-control" id="year" name="year" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Car</button>
+    </form>
+{% endblock %}
