@@ -1,4 +1,4 @@
-## flask - cars inventory management app
+## flask and json - cars inventory management app
 
 
 # features:  
