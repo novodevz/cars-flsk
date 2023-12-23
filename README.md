@@ -1,8 +1,8 @@
-## cars inventory management app  
+# cars inventory management app  
 - with flask and json db  
 
 
-# features:  
+## features:  
 - print cars - done  
 - search car - done  
 - add car - done  
@@ -10,7 +10,7 @@
 - delete car - done  
 
 
-# run app  
+## run app  
 with gitbash term run:  
 git clone https://github.com/novodevz/cars-flsk.git  
 cd cars-flsk/  
